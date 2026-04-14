@@ -11,8 +11,10 @@ Um guia completo sobre Git e controle de versão criado para estudo e para inici
 - [Merge e Pull Requests](#️-merge-e-pull-requests)
 - [Sincronização com Repositório Remoto](#️-sincronização-com-repositório-remoto)
 - [Comandos Úteis](#️-comandos-úteis)
+- [Recursos Avançados](#-recursos-avançados)
 - [Fluxo de Trabalho Completo](#-fluxo-de-trabalho-completo)
 - [Boas Práticas](#-boas-práticas)
+- [Tomada de Decisão com Git](#-tomada-de-decisão-com-git)
 
 ---
 
@@ -210,6 +212,46 @@ git remote prune origin
 ```
 
 ---
+## 🧠 Recursos Avançados
+
+### 📦 Stash (Trabalho Temporário)
+
+```bash
+git stash
+git stash list
+git stash apply
+git stash drop
+git stash clear
+```
+
+### Rebase
+```bash
+  git rebase main
+```
+
+ - 💡 Reorganiza o histórico de commits de forma linear.
+
+ - ⚠️ Evite usar em branches já compartilhadas.
+
+### 🍒 Cherry-pick
+```bash
+git cherry-pick <hash>
+```
+
+💡 Aplica um commit específico em outra branch.
+
+### 🚫 .gitignore
+
+Arquivo que define o que não deve ser versionado.
+
+Exemplo:
+```
+node_modules/
+.env
+dist/
+*.log
+```
+---
 
 ## 🚀 Fluxo de Trabalho Completo
 
@@ -289,7 +331,37 @@ Conflitos são normais! Quando acontecem:
 4. Remova as marcações do Git
 5. Faça commit da resolução
 
+### 🧩 Estratégias de Branching
+
+#### GitHub Flow
+- main sempre estável
+- tudo via Pull Request
+
+#### Git Flow
+- main → produção
+- develop → desenvolvimento
+- feature/* → funcionalidades
+- hotfix/* → correções urgentes
+
+💡 Escolha depende do tamanho do projeto.
+
 ---
+
+## 🧠 Tomada de Decisão com Git
+
+### Merge vs Rebase
+
+- **Merge**
+  - Mantém histórico completo
+  - Mais seguro para equipes
+
+- **Rebase**
+  - Histórico linear
+  - Mais limpo visualmente
+
+💡 Regra prática:
+- Use **merge** em colaboração
+- Use **rebase** localmente para organizar commits
 
 ## 📚 Recursos Adicionais
 
